@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -21,6 +22,8 @@ class ProductController extends Controller
 
         //this line fetch all products from products table
         $product_data = Product::withPrices()->get();
+
+
 
         //pass product info to view or browser
         return view('pages.default.productspage', compact('product_data'));

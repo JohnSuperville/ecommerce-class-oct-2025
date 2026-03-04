@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-
+//use App\App\Traits\PhpFlasher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+    //Add flasher here
+    //use PhpFlasher;
+
     /**
      * This gets all the products the user adds to the carts.
      */
@@ -47,6 +51,8 @@ class CartController extends Controller
             ['quantity' => DB::raw('quantity + ' . $request->quantity), 'updated_at' => now()]
         );
 
+        //$this->flashSuccess('Product added to cart');
+
         return redirect()->route('cart.index')->with('message', 'Product added to cart');
     }
 
@@ -71,6 +77,7 @@ class CartController extends Controller
             ['user_id' => Auth::id(), 'product_id' => $request->id],
             ['quantity' => DB::raw('quantity + ' . 1), 'updated_at' => now()]
         );
+        //$this->flashSuccess('Product added to cart');
 
         return redirect()->route('cart.index')->with('message', 'Product added to cart');
     }
