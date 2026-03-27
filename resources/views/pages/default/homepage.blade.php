@@ -15,10 +15,11 @@
                         <div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
                             data-scrollax=" properties: { translateY: '70%' }">
                             <div class="text">
-                                <span class="subheading">Winkel eCommerce Shop</span>
+                                <span class="subheading">PROTEUS KIDS STORE</span>
                                 <div class="horizontal">
-                                    <h3 class="vr" style="background-image: url('images/divider.jpg');">Stablished Since
-                                        2000</h3>
+                                    <h3 class="vr" style="background-image: url('images/divider.jpg');">Stablished
+                                        Since
+                                        2022</h3>
                                     <h1 class="mb-4 mt-3">Catch Your Own <br><span>Stylish &amp; Look</span></h1>
                                     <p>A small river named Duden flows by their place and supplies it with the necessary
                                         regelialia. It is a paradisematic country.</p>

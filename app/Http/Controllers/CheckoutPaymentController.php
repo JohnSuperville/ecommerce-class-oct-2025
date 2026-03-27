@@ -49,8 +49,20 @@ class CheckoutPaymentController extends Controller
 
             case 'stripe':
                 #code...
-                break;
 
+
+                $stripe_checkout->startCheckoutSession();
+                $stripe_checkout->addEmail($user->email);
+                $stripe_checkout->addProducts($cart_data);
+                $stripe_checkout->addPointsCoupon();
+                $stripe_checkout->enablePromoCodes();
+                $shipping_data = $shipping_helper->getGroupShippingOptions();
+                $stripe_checkout->addShippingOptions($shipping_data);
+                $stripe_checkout->createSession();
+                $insert_data = $stripe_checkout->getOrderCreateData();
+                $completed = true;
+
+                break;
             default:
                 $insert_data = [
                     'payment_provider' => 'testing',
@@ -88,7 +100,7 @@ class CheckoutPaymentController extends Controller
                 new OrderProduct(
                     [
                         'product_id' => $data->id,
-                        'user_id' => $data->id,
+                        'user_id' => $user->id,
                         'price' => $data->getPrice(),
                         'quantity' => $data->pivot->quantity,
                     ]
@@ -99,6 +111,10 @@ class CheckoutPaymentController extends Controller
         $order->order_products()->saveMany($records);
 
         // Redirect
+        if ($payment == 'stripe') {
+            return redirect($stripe_checkout->getUrl());
+        }
 
+        dd('Payment was successful.');
     }
 }
