@@ -15,6 +15,7 @@ class ProductController extends Controller
      * Pass the infomation to the page called productspage
      */
 
+
     public function index()
     {
         //checking to see if person is login, and what group the user belongs to
@@ -22,8 +23,6 @@ class ProductController extends Controller
 
         //this line fetch all products from products table
         $product_data = Product::withPrices()->get();
-
-
 
         //pass product info to view or browser
         return view('pages.default.productspage', compact('product_data'));

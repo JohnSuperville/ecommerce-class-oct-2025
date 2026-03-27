@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Product;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class DetailController extends Controller
