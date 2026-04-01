@@ -54,7 +54,7 @@ class CustomHelper
     public static function dateToReadableFullAbbr($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)
-        ->format('D, M jS Y');
+            ->format('D, M jS Y');
     }
 
 

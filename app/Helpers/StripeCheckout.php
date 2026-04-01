@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\points\PointsDiscount;
 use Illuminate\Database\Eloquent\Collection;
 
 class StripeCheckout
@@ -111,7 +112,18 @@ class StripeCheckout
      */
     public function addPointsCoupon()
     {
-        return false;
+        $points_exchanged = session('points_exchanged');
+        if ($points_exchanged) {
+
+            try {
+                $reward = PointsDiscount::where('points_needed', $points_exchanged)->first();
+                $stripe_coupon = $this->stripe->coupons->retrieve($reward->stripe_discount_id, []);
+                $this->coupon_used = true;
+                $this->stripe_checkout_data['discounts'] = [['coupon' => $reward->stripe_discount_id]];
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
     }
 
     /**
@@ -215,5 +227,4 @@ class StripeCheckout
     {
         dd($this->checkout_session);
     }
-
 } // end Class

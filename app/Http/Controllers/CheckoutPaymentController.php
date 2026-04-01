@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\PointsHelper;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Helpers\ShippingHelper;
@@ -88,8 +89,14 @@ class CheckoutPaymentController extends Controller
         $order->shipping_address_id = 1;
         $order->billing_address_id = 1;
         $order->payment_status = 'unpaid';
-        $order->save();
 
+        //Storing points for Orders
+
+        $points_helper = new PointsHelper($cart_data->getSubtotal(), $user->total_points, $group_ids);
+        $order->points_exchanged = $points_helper->getPointsExhanged();
+        $order->points_discount_applied = $points_helper->getPointsDiscountApplied();
+        $order->points_gained = $points_helper->getPointsGained();
+        $order->save();
 
         // Create order details
         $records = [];

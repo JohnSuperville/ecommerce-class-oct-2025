@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Helpers\ProductCollectionHelper;
+use App\Models\reviews\Review;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -70,5 +72,22 @@ class Product extends Model
     public function getLink()
     {
         return route('shop.details', ['id' => $this->id]);
+    }
+
+    /**
+     *  Get all of the reviews for the Product.
+     */
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function scopeWithRatings(Builder $query)
+    {
+        $query->with('reviews')
+            ->withCount('reviews as total_reviews')
+            ->withAvg(['reviews as average_rating' => function ($query) {}], 'rating')
+            // ->select('*', DB::raw('(SELECT AVG(rating) FROM reviews WHERE reviews.product_id = product.id AND reviews.verified = 1 as average_rating)'))
+        ;
     }
 }

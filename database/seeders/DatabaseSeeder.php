@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AddressSeeder::class,
             ShippingSeeder::class,
+            PointsDiscountSeeder::class,
+            PointsSeeder::class,
             AppSeeder::class,
         ]);
     }

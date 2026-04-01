@@ -3,10 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Notifications\Notifiable;
+
+use App\Models\Address;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -62,18 +66,45 @@ class User extends Authenticatable
     }
 
     /**
-     *  =============== SCOPES  ===============
+     * Get all of the addresses for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
 
     /**
-     *  =============== FUNCTIONS  ===============
+     *  =============== SCOPES  ===============
      */
-
     public function getGroups(): array
     {
-        $group_ids = [1];
+        return [1];
+    }
 
-        return $group_ids;
+
+    public function scopeSubtractPoints(Builder $query, int $user_id, int $points = 0)
+    {
+        $query->where('id', $user_id)
+            ->decrement('total_points', $points);
+    }
+
+
+    public function scopeAddPoints(Builder $query, int $user_id, int $points = 0)
+    {
+        $query->where('id', $user_id)
+            ->increment('total_points', $points);
+
+
+        /**
+         *  =============== FUNCTIONS  ===============
+         */
+
+        // public function getGroups(): array
+        // {
+        //     $group_ids = [1];
+
+        //     return $group_ids;
     }
 }
