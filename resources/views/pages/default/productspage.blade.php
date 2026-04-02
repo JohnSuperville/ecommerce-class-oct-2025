@@ -4,6 +4,8 @@
 
     <section class="ftco-section bg-light">
         <div class="container">
+
+            <x-template0.search/>
             <div class="row">
                 <div class="col-md-8 col-lg-10 order-md-last">
                     <div class="row">

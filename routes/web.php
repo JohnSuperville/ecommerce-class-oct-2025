@@ -7,6 +7,7 @@ use App\Http\Controllers\CheckoutSuccessController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\reviews\ReviewController;
+use App\Http\Controllers\tiers\TierController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -56,4 +57,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout/{payment}/testing', [CheckoutPaymentController::class, 'index'])->name('checkout.success.testing');
 
     Route::get('/checkout/success/{id}', [CheckoutSuccessController::class, 'index'])->name('checkout.success');
+});
+
+Route::prefix('user')->middleware(['auth'])->name('user.')->group(function () {
+    // Subscriptions goes here
+    Route::get('/tiers', [TierController::class, 'index'])->name('tiers.index');
 });

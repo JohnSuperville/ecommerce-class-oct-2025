@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderPaid;
 use App\Helpers\PointsHelper;
 use App\Helpers\StripeCheckoutSuccess;
+use App\Helpers\TierHelper;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutSuccessController extends Controller
 {
@@ -22,7 +26,14 @@ class CheckoutSuccessController extends Controller
         if ($succesful == false) {
             abort(404);
         }
+        // FEATURE::Tiers - Event/Listener to update user after an order
+        $order = Order::findOrFail($stripe_checkout->order_id);
+        OrderPaid::dispatch($order);
 
-        return view('pages.default.checkout-successpage', compact('points_gained'));
+        // FEATURE::Tiers - Checkout success
+        $tier_helper = new TierHelper(Auth::user()->load('tier'));
+        $tier_helper->checkTierProgress();
+
+        return view('pages.default.checkout-successpage', compact('points_gained', 'tier_helper'));
     }
 }

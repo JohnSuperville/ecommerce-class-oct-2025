@@ -5,8 +5,10 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Address;
+use App\Models\tier\Tier;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -79,8 +81,9 @@ class User extends Authenticatable
      *  =============== SCOPES  ===============
      */
     public function getGroups(): array
-    {
-        return [1];
+    { //get Groups
+        $group_ids = [$this->tier->id];
+        return $group_ids;
     }
 
 
@@ -106,5 +109,23 @@ class User extends Authenticatable
         //     $group_ids = [1];
 
         //     return $group_ids;
+    }
+
+    // *  =============== Relationships  ===============
+
+    /**
+     * The tier the user belongs to.
+     */
+    public function tier(): BelongsTo
+    {
+        return $this->belongsTo(Tier::class, 'tier_id');
+    }
+
+    /**
+     * Get all of the orders for the User.
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }
