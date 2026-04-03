@@ -28,7 +28,7 @@ class ProductController extends Controller
         $product_details = $this->filterProducts($request);
 
 
-        $category_details = Product::select('product_category')->distinct()->get();
+        $category_details = Product::select('category')->distinct()->get();
 
         //pass product info to view or browser
 

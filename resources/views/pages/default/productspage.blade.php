@@ -3,11 +3,13 @@
 
 
     <section class="ftco-section bg-light">
+
         <div class="container">
 
-            <x-template0.search/>
+
             <div class="row">
                 <div class="col-md-8 col-lg-10 order-md-last">
+                    
                     <div class="row">
 
 
@@ -17,6 +19,7 @@
                             <div class="product d-flex flex-column">
                                 <a href="#" class="img-prod"><img class="img-fluid" src="{{ $data->getImage() }}"
                                         alt="Colorlib Template">
+
                                     <span class="status">50% Off</span>
                                     <div class="overlay"></div>
                                 </a>
