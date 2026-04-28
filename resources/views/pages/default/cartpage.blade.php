@@ -31,9 +31,6 @@
 
                                 <tr class="text-center">
                                     <td class="product-remove">
-
-
-
                                         <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}"
                                             method="POST">
                                             @csrf
@@ -44,18 +41,14 @@
                                         </form>
 
                                         {{-- <a href="#"><span class="ion-ios-close"></span></a> --}}
-
-
-
                                     </td>
-
                                     <td class="image-prod">
                                         <div class="img" style="background-image:url('{{ $data->getImage() }}');"></div>
                                     </td>
 
                                     <td class="product-name">
                                         <h3>{{ $data->title }}</h3>
-                                        <p>Far far away, behind the word mountains, far from the countries</p>
+                                        {{-- <p>Far far away, behind the word mountains, far from the countries</p> --}}
                                     </td>
 
                                     <td class="price">${{ app('CustomHelper')->formatPrice($data->getPrice()) }}</td>

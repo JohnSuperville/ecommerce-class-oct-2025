@@ -17,11 +17,11 @@ class ReviewFilter extends Review
 
         //main query
         $query->with('users')
-            //get verified reviews
+            //get verified reviews from user purchases
             ->verified($values['verified'] ?? 'all')
-            //get specific ratings
+            //This get specific ratings
             ->withRating($values['rating'] ?? 0)
-            //sort
+            //sort the by most recent update
             ->sortBy($value['sort'] ?? 'recent')
         ;
     }

@@ -60,7 +60,7 @@ class TierHelper
     {
         if ($this->testing) {
             $this->spending_before = 600; // last purchase
-            $this->spending = 1200; // total spending
+            $this->spending = 2500; // total spending
             $this->tier_before = $this->getTier($this->spending - $this->spending_before);
             $this->tier = $this->getTier($this->spending);
             $this->next_tier = $this->getNextTier($this->spending);
@@ -76,29 +76,30 @@ class TierHelper
     {
         try {
             $this->testing();
-
+            // Determines the next Tier.
             $this->next_tier = $this->getNextTier($this->spending);
-
+            // Calculate progress toward next tier.
             if ($this->next_tier) {
                 $this->nextTierProgress($this->next_tier);
             }
-
+            // Calculates the max Tier progress.
             if ($this->next_tier) {
                 $max_tier = Tier::orderBy('spending_range', 'desc')->first();
                 $this->max_tier = $max_tier;
                 $this->max_tier_amount = $this->calculateNextTierAmount($max_tier, $this->spending);
                 $this->max_tier_percent = $this->calculateNextTierPercent($this->spending, $max_tier->spending_range);
             }
-
+            // This get the last order totals.
             $total = Order::where('user_id', $this->user->id)
                 ->where('payment_status', 'paid')
                 ->get()
                 ->last()
                 ->total ?? 0;
-
+            // This block calculate the previous spending and Tier.
             $this->spending_before = $this->spending - $total;
             $this->tier_before = $this->getTier($this->spending - $total);
             $this->testing();
+            //This Check if the is upgraded to the next Tier. 
             $this->tier_upgraded = $this->compareTier($this->tier_before, $this->tier);
 
             $this->is_valid = true;

@@ -9,10 +9,11 @@
 
             <div class="row">
                 <div class="col-md-8 col-lg-10 order-md-last">
-                    
+
                     <div class="row">
 
-
+<x-core.products-search />
+<x-core.products-filter />
                         @foreach ($product_data as $data)
 
                         <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">

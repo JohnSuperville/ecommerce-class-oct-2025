@@ -20,17 +20,18 @@ class DetailController extends Controller
         //To get all the reviews for a specific product
 
         $product = $data;
+        // Gets all views for a product
         $review_data = ReviewFilter::forProduct($id)
             ->filterReviews([])
             ->limit(4)
             ->get();
 
-        //Too get average rating
+        //Getsaverage rating
         $average_rating = ReviewFilter::averageOnly($product->id);
 
-        //Too get percentage with ratings
+        //Too get percentage of each rating
         $rating_data = ReviewFilter::calculateRatings($product->id);
-
+        //Gets the total users reviews in total and verifies the review.
         $total_reviews = ReviewFilter::forProduct($product->id)->count();
 
         //this line fetch single product base on ID number from products table

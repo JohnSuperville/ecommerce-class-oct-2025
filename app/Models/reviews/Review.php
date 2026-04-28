@@ -12,7 +12,7 @@ class Review extends Model
     use HasFactory;
 
     public $increment = true;
-
+    //  This model request permission to insert data into the database
     protected $fillable = [
         'user_id',
         'product_id',

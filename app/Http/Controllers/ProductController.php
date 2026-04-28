@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\products\ProductFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,23 +20,27 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        $values = $request->query();
         //checking to see if person is login, and what group the user belongs to
         $group_ids = Auth::check() ? Auth::user()->getGroups() : [1];
 
         //this line fetch all products from products table
         $product_data = Product::withPrices()->get();
+        $product_data = ProductFilter::withPrices()->filter($values)->get();
 
         $product_details = $this->filterProducts($request);
 
 
         $category_details = Product::select('category')->distinct()->get();
 
-        //pass product info to view or browser
 
-        // return view('template0_pages.storage', [
-        //     'product_details' => $product_details,
-        //     'category_details' => $category_details,
-        // ]);
+        // $product_data = ProductFilter::withPrices()->filter($values)->get();
+        // pass product info to view or browser
+
+        // // return view('template0_pages.storage', [
+        // //     'product_details' => $product_details,
+        // //     'category_details' => $category_details,
+        // // ]);
         return view('pages.default.productspage', compact('product_data'));
     }
 
@@ -55,16 +60,16 @@ class ProductController extends Controller
 
             switch ($key) {
                 case 'category':
-                    $product_details->where('product_category', $value);
+                    $product_details->where('category', $value);
                     break;
                 case 'search':
-                    $product_details->where('product_title', 'LIKE', '%' . $value . '%');
+                    $product_details->where('title', 'LIKE', '%' . $value . '%');
                     break;
                 case 'min_price':
-                    $product_details->where('product_price', '>=', $value);
+                    $product_details->where('price', '>=', $value);
                     break;
                 case 'max_price':
-                    $product_details->where('product_price', '<=', $value);
+                    $product_details->where('price', '<=', $value);
                     break;
 
                 // http://example-app.test/store/sort=title
@@ -93,23 +98,23 @@ class ProductController extends Controller
 
         switch ($value) {
             case 'title':
-                return ['product_title', 'ASC'];
+                return ['title', 'ASC'];
                 break;
             case 'title-desc':
-                return ['product_title', 'DESC'];
+                return ['title', 'DESC'];
                 break;
             case 'price':
-                return ['product_price', 'ASC'];
+                return ['price', 'ASC'];
                 break;
             case 'price-desc':
-                return ['product_price', 'DESC'];
+                return ['price', 'DESC'];
 
                 break;
             case 'value':
                 // OTHER SORT FEATURES GO HERE
                 break;
             default:
-                return ['product_title', 'ASC'];
+                return ['title', 'ASC'];
                 break;
         }
     }

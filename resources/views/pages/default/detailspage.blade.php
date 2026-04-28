@@ -14,14 +14,7 @@
 
 
                         @include('pages.additional.reviews.reviews-starts-custom')
-                        {{-- <p class="text-left mr-4">
-                            <a href="#" class="mr-2">5.0</a>
-                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        </p> --}}
+                        
                         <p class="text-left mr-4">
                             <a href="#" class="mr-2" style="color: #000;">100 <span
                                     style="color: #bbb;">Rating</span></a>
