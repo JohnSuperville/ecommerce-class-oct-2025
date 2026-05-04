@@ -122,7 +122,8 @@
                                                 alt="">
                                             <div class="align-self-baseline mx-3">{{ $review->users->name }}</div>
                                         </div>
-                                        <div>Review on {{ CustomHelper::dateToReadable($review->created_at) }}</div>
+                                        <div>Review on {{ app('CustomHelper')->dateToReadable($review->created_at) }}</div>
+                                        {{-- <div>Review on {{ CustomHelper::dateToReadable($review->created_at) }}</div> --}}
                                         <div class="review-title">
                                             <span>{{ $review->rating }} Stars</span>
                                             <span class="font-weight-bold">{{ $review->title }}</span>

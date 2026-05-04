@@ -66,7 +66,7 @@ class StripeCheckoutSuccess
             }
 
             // removed products from cart
-            // User::find($user_id)->products()->detach();
+            User::find($user_id)->products()->detach();
 
             return true;
         }

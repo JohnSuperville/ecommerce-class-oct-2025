@@ -23,7 +23,7 @@ class ReviewController extends Controller
 
         //get reviews
         $review_data = ReviewFilter::forProduct($product_id)
-            ->filterReview($validated)
+            ->filterReviews($validated)
             ->paginate(4);
 
         //Calculates the average rating

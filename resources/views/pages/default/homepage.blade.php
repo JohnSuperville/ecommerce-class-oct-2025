@@ -10,19 +10,19 @@
                     <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
                         data-scrollax-parent="true">
                         <div class="one-third order-md-last img js-fullheight"
-                            style="background-image:url('images/bg_1.jpg');">
+                            style="background-image:url('images/products/background2.jpg');">
                         </div>
                         <div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
                             data-scrollax=" properties: { translateY: '70%' }">
                             <div class="text">
                                 <span class="subheading">PROTEUS KIDS STORE</span>
                                 <div class="horizontal">
-                                    <h3 class="vr" style="background-image: url('images/divider.jpg');">Stablished
+                                    <h3 class="vr"
+                                        style="background-image: url('images/products/background2.jpg');">Stablished
                                         Since
-                                        2022</h3>
-                                    <h1 class="mb-4 mt-3">Catch Your Own <br><span>Stylish &amp; Look</span></h1>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
-                                        regelialia. It is a paradisematic country.</p>
+                                        2026</h3>
+                                    <h1 class="mb-4 mt-3">Catch Your Own <br><span>TOYS &amp; Look</span></h1>
+                                    <p>Find the right toy for you child.</p>
 
                                     <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover Now</a></p>
                                 </div>
@@ -38,18 +38,20 @@
                     <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
                         data-scrollax-parent="true">
                         <div class="one-third order-md-last img js-fullheight"
-                            style="background-image:url('images/bg_2.jpg');">
+                            style="background-image:url('images/products/background2.jpg');">
                         </div>
                         <div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
                             data-scrollax=" properties: { translateY: '70%' }">
                             <div class="text">
-                                <span class="subheading">Winkel eCommerce Shop</span>
+                                <span class="subheading">Proteus Kids Shop</span>
                                 <div class="horizontal">
-                                    <h3 class="vr" style="background-image: url(images/divider.jpg);">Best eCommerce
+                                    <h3 class="vr" style="background-image: url(images/products/background2.jpg);">
+                                        Best eCommerce
                                         Online Shop</h3>
-                                    <h1 class="mb-4 mt-3">A Thouroughly <span>Modern</span> Woman</h1>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
-                                        regelialia. It is a paradisematic country.</p>
+                                    <h1 class="mb-4 mt-3">Safe secure payment methods with <span>STRIPE</span> Payments
+                                    </h1>
+                                    <p>Find the right toy for you child. All toys are SAFE and improves your child's
+                                        Learning and Development</p>
 
                                     <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Shop Now</a></p>
                                 </div>
@@ -78,9 +80,7 @@
                         </div>
                     </div>
                     <div class="pb-md-5">
-                        <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious
-                            Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their
-                            agency, where they abused her for their.</p>
+                        <p>Kids toys with STRIPE</p>
                         <div class="row ftco-services">
                             <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
                                 <div class="media block-6 services">
@@ -274,7 +274,7 @@
                 </div>
                 <div class="col-md-4 py-md-5 ftco-animate">
                     <div class="text py-3 py-md-5">
-                        <h2 class="mb-4">New Women's Clothing Summer Collection 2019</h2>
+                        <h2 class="mb-4">New Kids Toys Collection 2026</h2>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                             Semantics, a large language ocean.</p>
@@ -289,7 +289,7 @@
                 </div>
                 <div class="col-md-7 py-3 py-md-5 ftco-animate">
                     <div class="text text-2 py-md-5">
-                        <h2 class="mb-4">New Men's Clothing Summer Collection 2019</h2>
+                        <h2 class="mb-4">ew Kids Toys Collection 2026</h2>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                             Semantics, a large language ocean.</p>
@@ -442,7 +442,7 @@
     </section>
 
     <section class="ftco-section ftco-counter img" id="section-counter"
-        style="background-image: url('images/bg_4.jpg');">
+        style="background-image: url('images/products/background2.jpg');">
         <div class="container">
             <div class="row justify-content-center py-5">
                 <div class="col-md-10">

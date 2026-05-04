@@ -82,7 +82,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-2">
+                {{-- <div class="col-md-4 col-lg-2">
                     <div class="sidebar">
                         <div class="sidebar-box-2">
                             <h2 class="heading">Categories</h2>
@@ -218,7 +218,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

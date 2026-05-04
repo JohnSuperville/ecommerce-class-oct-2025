@@ -43,7 +43,7 @@
                         <div class="col-md pr-4 d-flex topper align-items-center">
                             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
                                     class="icon-paper-plane"></span></div>
-                            <span class="text">youremail@email.com</span>
+                            <span class="text">ProteusKidsStore@email.com</span>
                         </div>
                         <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
                             <span class="text">3-5 Business days delivery &amp; Free Returns</span>
@@ -56,7 +56,13 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home.index') }}">Minishop</a>
+
+            {{-- // Proteus Logo --}}
+            <a class="navbar-brand" href="{{ route('home.index') }}">
+              <img src="{{ asset('images/products/Pklogo3.gif') }}" alt="Logo" style="height:200px;">
+            </a>
+
+            {{-- <a class="navbar-brand" href="{{ route('home.index') }}">Minishop</a> --}}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -64,17 +70,16 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="{{ route('store.index') }}" class="nav-link">Shop</a></li>
 
+                        <li class="nav-item"><a href="{{ route('store.index') }}" class="nav-link"style="font-size:20px; font-weight: 700;">Shop</a></li>
                     @auth
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Profile</a>
+                                aria-haspopup="true" aria-expanded="false" style="font-size:20px; font-weight: 600;">Menu</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
                                 <a class="dropdown-item" href="{{ route('store.index') }}">Shop</a>
                                 <a class="dropdown-item" href="{{ route('cart.index') }}">Cart</a>
-                                <a class="dropdown-item" href="#">Order History</a>
+                                {{-- <a class="dropdown-item" href="#">Order History</a> --}}
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -87,19 +92,22 @@
 
                             </div>
                         </li>
+                         {{-- <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link" style="font-size:20px; font-weight: 600;" >Home</a></li> --}}
+                         <li class="nav-item"><a href="{{ route('cart.index') }}" class="nav-link" style="font-size:20px; font-weight: 600;">Cart</a></li>
+                         {{-- <li class="nav-item"><a href="#" class="nav-link" style="font-size:20px; font-weight: 600;">Contact</a></li> --}}
                     @endauth
-                    <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+
+
 
 
                     @guest
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link" style="font-size:20px; font-weight: 700;">Login</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link" style="font-size:20px; font-weight: 700;">Register</a></li>
                     @endguest
 
 
                     @auth
-                        <li class="nav-item cta cta-colored"><a href="{{ route('cart.index') }}" class="nav-link">
+                        <li class="nav-item cta cta-colored"><a href="{{ route('cart.index') }}" class="nav-link" style="font-size:30px; font-weight: 600;">
                                 <span class="icon-shopping_cart"></span>
                                 <x-core.cart-icon />
                             </a></li>
@@ -120,11 +128,12 @@
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-center">
                         <div class="col-md-9 ftco-animate text-center">
-                            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span>
+                            <p class="breadcrumbs"><<a href="{{ route('home.index') }}" class="nav-link">>Home</a></span>
                                 <span>Shop</span>
 
                             <h1 class="mb-0 bread">{{ $title }}</h1>
-                       <x-template0.search/> </div>
+                       {{-- <x-template0.search/> --}}
+                    </div>
                     </div>
                 </div>
             </div></p>
@@ -154,7 +163,7 @@
 
     {{-- START footer --}}
     <footer class="ftco-footer ftco-section">
-        <div class="container">
+        <div class="container" style="background-image: url('{{ asset('storage/images/products/banner2.jpg') }}');">>
             <div class="row">
                 <div class="mouse">
                     <a href="#" class="mouse-icon">
@@ -165,7 +174,7 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Minishop</h2>
+                        <h2 class="ftco-heading-2">Proteus kids Store</h2>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -174,7 +183,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md">
+                {{-- <div class="col-md">
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
@@ -184,7 +193,7 @@
                             <li><a href="#" class="py-2 d-block">Contact Us</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-4">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">Help</h2>
